@@ -1,0 +1,42 @@
+{
+  "name": "find-abroad-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@mui/material": "^5.16.0",
+    "@mui/icons-material": "^5.16.0",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@emotion/cache": "^11.13.0",
+    "@emotion/server": "^11.11.0",
+    "@tanstack/react-query": "^5.50.1",
+    "axios": "^1.7.2",
+    "framer-motion": "^11.3.2",
+    "react-hook-form": "^7.52.1",
+    "zod": "^3.23.8",
+    "@hookform/resolvers": "^3.9.0",
+    "next-seo": "^6.6.0",
+    "posthog-js": "^1.148.0",
+    "react-hot-toast": "^2.4.1",
+    "date-fns": "^3.6.0",
+    "notistack": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5.5.3"
+  }
+}

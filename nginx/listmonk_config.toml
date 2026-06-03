@@ -1,0 +1,19 @@
+# Listmonk configuration
+# See https://listmonk.app/docs/configuration/ for all options.
+# Update [db] section to match your POSTGRES_* environment variables.
+
+[app]
+address = "0.0.0.0:9000"
+admin_username = "listmonk"
+admin_password = "listmonk"  # Change in production via LISTMONK_app__admin_password env var
+
+[db]
+host = "postgres"
+port = 5432
+user = "find_abroad_user"   # Matches POSTGRES_USER in .env
+password = "change_me"      # Matches POSTGRES_PASSWORD in .env
+database = "listmonk"
+ssl_mode = "disable"
+max_open = 25
+max_idle = 25
+max_lifetime = "300s"
