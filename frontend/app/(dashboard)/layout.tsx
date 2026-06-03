@@ -20,8 +20,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   if (loading) {
     return (
-      <Box sx={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center" }}>
-        <CircularProgress color="primary" />
+      <Box sx={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center", bgcolor: "#0A0A0B" }}>
+        <CircularProgress sx={{ color: "#FF6B35" }} />
       </Box>
     );
   }
@@ -29,11 +29,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   if (!isAuthenticated) return null;
 
   return (
-    <Box sx={{ display: "flex", height: "100vh", overflow: "hidden", bgcolor: "grey.50" }}>
+    <Box sx={{ display: "flex", height: "100vh", overflow: "hidden", bgcolor: "#0A0A0B" }}>
       <DashboardSidebar />
       <Box sx={{ display: "flex", flex: 1, flexDirection: "column", overflow: "hidden" }}>
         <DashboardHeader />
-        <Box component="main" sx={{ flex: 1, overflowY: "auto", p: 3 }}>{children}</Box>
+        <Box component="main" sx={{ flex: 1, overflowY: "auto", p: 3, bgcolor: "#0A0A0B" }}>{children}</Box>
       </Box>
     </Box>
   );

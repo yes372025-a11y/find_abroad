@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import MuiThemeRegistry from "./mui-theme-registry";
 import { Providers } from "~/components/layout/providers";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="bg-[#0A0A0B]">
+      <body className="bg-[#0A0A0B]">
         <MuiThemeRegistry>
           <Providers>{children}</Providers>
         </MuiThemeRegistry>

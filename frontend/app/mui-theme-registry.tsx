@@ -7,37 +7,39 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useState } from "react";
 
+// Modern dark theme with neon coral accent - appealing to college students
 export const muiTheme = createTheme({
   palette: {
+    mode: "dark",
     primary: {
-      main: "#2563eb",
-      light: "#60a5fa",
-      dark: "#1d4ed8",
-      contrastText: "#ffffff",
+      main: "#FF6B35",
+      light: "#FF8F66",
+      dark: "#E85A2A",
+      contrastText: "#0A0A0B",
     },
     secondary: {
-      main: "#7c3aed",
-      contrastText: "#ffffff",
+      main: "#00D9FF",
+      contrastText: "#0A0A0B",
     },
     success: {
-      main: "#16a34a",
+      main: "#10B981",
     },
     background: {
-      default: "#f9fafb",
-      paper: "#ffffff",
+      default: "#0A0A0B",
+      paper: "#141416",
     },
     text: {
-      primary: "#0f172a",
-      secondary: "#64748b",
+      primary: "#FAFAFA",
+      secondary: "#A1A1AA",
     },
-    divider: "rgba(0,0,0,0.08)",
+    divider: "rgba(255,255,255,0.08)",
   },
   typography: {
     fontFamily: '"Inter", "Helvetica Neue", "Arial", sans-serif',
-    h1: { fontWeight: 800, lineHeight: 1.1 },
-    h2: { fontWeight: 700, lineHeight: 1.2 },
-    h3: { fontWeight: 700, lineHeight: 1.3 },
-    h4: { fontWeight: 600 },
+    h1: { fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.04em" },
+    h2: { fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.03em" },
+    h3: { fontWeight: 700, lineHeight: 1.2, letterSpacing: "-0.02em" },
+    h4: { fontWeight: 600, letterSpacing: "-0.01em" },
     h5: { fontWeight: 600 },
     h6: { fontWeight: 600 },
     button: { textTransform: "none", fontWeight: 600 },
@@ -45,25 +47,40 @@ export const muiTheme = createTheme({
   shape: { borderRadius: 12 },
   shadows: [
     "none",
-    "0 1px 3px rgba(0,0,0,0.06)",
-    "0 2px 8px rgba(0,0,0,0.08)",
-    "0 4px 16px rgba(0,0,0,0.10)",
-    "0 8px 24px rgba(0,0,0,0.12)",
-    "0 12px 32px rgba(0,0,0,0.14)",
-    ...Array(19).fill("0 16px 40px rgba(0,0,0,0.16)"),
+    "0 1px 3px rgba(0,0,0,0.3)",
+    "0 2px 8px rgba(0,0,0,0.4)",
+    "0 4px 16px rgba(0,0,0,0.5)",
+    "0 8px 24px rgba(0,0,0,0.6)",
+    "0 12px 32px rgba(0,0,0,0.7)",
+    ...Array(19).fill("0 16px 40px rgba(0,0,0,0.8)"),
   ] as any,
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: "9999px",
+          borderRadius: "10px",
           fontWeight: 600,
           boxShadow: "none",
-          "&:hover": { boxShadow: "none" },
+          transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "&:hover": { 
+            boxShadow: "none",
+            transform: "translateY(-1px)",
+          },
         },
         containedPrimary: {
-          background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
-          "&:hover": { background: "linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)" },
+          background: "#FF6B35",
+          color: "#0A0A0B",
+          "&:hover": { 
+            background: "#FF8F66",
+          },
+        },
+        outlinedPrimary: {
+          borderColor: "rgba(255,107,53,0.5)",
+          color: "#FF6B35",
+          "&:hover": {
+            borderColor: "#FF6B35",
+            background: "rgba(255,107,53,0.08)",
+          },
         },
       },
     },
@@ -71,8 +88,10 @@ export const muiTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "16px",
-          border: "1px solid rgba(0,0,0,0.08)",
-          boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+          border: "1px solid rgba(255,255,255,0.06)",
+          background: "#141416",
+          boxShadow: "none",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         },
       },
     },
@@ -80,7 +99,19 @@ export const muiTheme = createTheme({
       defaultProps: { variant: "outlined", size: "small" },
       styleOverrides: {
         root: {
-          "& .MuiOutlinedInput-root": { borderRadius: "10px" },
+          "& .MuiOutlinedInput-root": { 
+            borderRadius: "10px",
+            background: "rgba(255,255,255,0.03)",
+            "& fieldset": {
+              borderColor: "rgba(255,255,255,0.1)",
+            },
+            "&:hover fieldset": {
+              borderColor: "rgba(255,107,53,0.5)",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "#FF6B35",
+            },
+          },
         },
       },
     },
@@ -94,12 +125,23 @@ export const muiTheme = createTheme({
         root: { fontWeight: 500 },
       },
     },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          background: "rgba(10,10,11,0.8)",
+          backdropFilter: "blur(20px)",
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
+        html: {
+          background: "#0A0A0B",
+        },
         body: {
-          background: "#f9fafb",
+          background: "#0A0A0B",
           scrollbarWidth: "thin",
-          scrollbarColor: "#cbd5e1 transparent",
+          scrollbarColor: "#27272a transparent",
         },
       },
     },
