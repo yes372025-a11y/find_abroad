@@ -25,30 +25,30 @@ export function HeroSection() {
       {/* Background elements */}
       <Box sx={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
         {/* Main gradient orb */}
-        <Box 
-          sx={{ 
-            position: "absolute", 
-            top: "-20%", 
-            right: "-10%", 
-            width: "60%", 
-            height: "80%", 
-            borderRadius: "50%", 
+        <Box
+          sx={{
+            position: "absolute",
+            top: "-20%",
+            right: "-10%",
+            width: "60%",
+            height: "80%",
+            borderRadius: "50%",
             background: "radial-gradient(ellipse, rgba(255,107,53,0.15) 0%, transparent 70%)",
             filter: "blur(60px)",
-          }} 
+          }}
         />
         {/* Secondary accent */}
-        <Box 
-          sx={{ 
-            position: "absolute", 
-            bottom: "-10%", 
-            left: "-5%", 
-            width: "40%", 
-            height: "50%", 
-            borderRadius: "50%", 
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "-10%",
+            left: "-5%",
+            width: "40%",
+            height: "50%",
+            borderRadius: "50%",
             background: "radial-gradient(ellipse, rgba(0,217,255,0.08) 0%, transparent 70%)",
             filter: "blur(80px)",
-          }} 
+          }}
         />
         {/* Grid pattern overlay */}
         <Box
@@ -81,8 +81,8 @@ export function HeroSection() {
               mb: 5,
             }}
           >
-            <Box sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#FF6B35", animation: "pulse 2s infinite" }} />
-            <Typography sx={{ color: "#FF6B35", fontSize: 13, fontWeight: 600 }}>
+            <Box sx={{ width: 5, height: 6, borderRadius: "50%", bgcolor: "#FF6B35", animation: "pulse 2s infinite" }} />
+            <Typography sx={{ color: "#FF6B35", fontSize: 12, fontWeight: 600 }}>
               Trusted by 25,000+ students worldwide
             </Typography>
           </Box>
@@ -92,21 +92,21 @@ export function HeroSection() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
           <Typography
             variant="h1"
-            sx={{ 
-              fontSize: { xs: 44, sm: 56, md: 80 }, 
-              fontWeight: 800, 
-              lineHeight: 1.05, 
-              letterSpacing: "-0.04em", 
-              mb: 3, 
+            sx={{
+              fontSize: { xs: 44, sm: 56, md: 80 },
+              fontWeight: 800,
+              lineHeight: 1.05,
+              letterSpacing: "-0.04em",
+              mb: 3,
               color: "#FAFAFA",
             }}
           >
             Your Dream{" "}
-            <Box 
-              component="span" 
-              sx={{ 
-                background: "linear-gradient(135deg, #FF6B35 0%, #FF8F66 50%, #00D9FF 100%)", 
-                WebkitBackgroundClip: "text", 
+            <Box
+              component="span"
+              sx={{
+                background: "linear-gradient(135deg, #FF6B35 0%, #FF8F66 50%, #00D9FF 100%)",
+                WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
             >
@@ -119,18 +119,18 @@ export function HeroSection() {
 
         {/* Subheadline */}
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-          <Typography 
-            sx={{ 
-              color: "#A1A1AA", 
-              fontWeight: 400, 
-              maxWidth: 600, 
-              mx: "auto", 
-              mb: 6, 
-              lineHeight: 1.7, 
+          <Typography
+            sx={{
+              color: "#A1A1AA",
+              fontWeight: 400,
+              maxWidth: 600,
+              mx: "auto",
+              mb: 6,
+              lineHeight: 1.7,
               fontSize: { xs: 16, md: 19 },
             }}
           >
-            Discover top universities, compare scholarships, check loan eligibility, 
+            Discover top universities, compare scholarships, check loan eligibility,
             and get expert guidance — all in one place.
           </Typography>
         </motion.div>
@@ -144,9 +144,9 @@ export function HeroSection() {
               variant="contained"
               size="large"
               endIcon={<ArrowForwardIcon />}
-              sx={{ 
-                px: 4, 
-                py: 1.8, 
+              sx={{
+                px: 4,
+                py: 1.8,
                 fontSize: 16,
                 background: "#FF6B35",
                 color: "#0A0A0B",
@@ -165,14 +165,14 @@ export function HeroSection() {
               href="/universities"
               variant="outlined"
               size="large"
-              sx={{ 
-                px: 4, 
-                py: 1.8, 
-                fontSize: 16, 
-                borderColor: "rgba(255,255,255,0.15)", 
+              sx={{
+                px: 4,
+                py: 1.8,
+                fontSize: 16,
+                borderColor: "rgba(255,255,255,0.15)",
                 color: "#FAFAFA",
-                "&:hover": { 
-                  borderColor: "#FF6B35", 
+                "&:hover": {
+                  borderColor: "#FF6B35",
                   bgcolor: "rgba(255,107,53,0.08)",
                 },
               }}
@@ -188,11 +188,11 @@ export function HeroSection() {
             <Typography sx={{ color: "#52525B", fontSize: 12, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.1em", mb: 4 }}>
               Students admitted to
             </Typography>
-            <Stack 
-              direction="row" 
-              spacing={{ xs: 3, md: 5 }} 
-              justifyContent="center" 
-              flexWrap="wrap" 
+            <Stack
+              direction="row"
+              spacing={{ xs: 3, md: 5 }}
+              justifyContent="center"
+              flexWrap="wrap"
               useFlexGap
             >
               {["Harvard", "Oxford", "MIT", "Toronto", "TU Munich", "Stanford"].map((uni, i) => (
@@ -202,10 +202,10 @@ export function HeroSection() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.7 + i * 0.05 }}
                 >
-                  <Typography 
-                    sx={{ 
-                      color: "#3F3F46", 
-                      fontWeight: 600, 
+                  <Typography
+                    sx={{
+                      color: "#3F3F46",
+                      fontWeight: 600,
                       fontSize: { xs: 13, md: 15 },
                       letterSpacing: "0.02em",
                     }}
