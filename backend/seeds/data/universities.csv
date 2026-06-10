@@ -1,0 +1,38 @@
+name,slug,country,city,world_ranking,qs_ranking,avg_tuition_usd,avg_living_cost_usd,min_cgpa,min_ielts,intakes,is_featured,website_url,description
+Massachusetts Institute of Technology,mit,USA,Cambridge,1,1,57986,24000,8.5,7.0,"Fall,Spring",true,https://mit.edu,World's top technical university known for engineering and science.
+Harvard University,harvard,USA,Cambridge,2,4,54000,26000,8.5,7.0,"Fall",true,https://harvard.edu,Ivy League university with exceptional research programs across all disciplines.
+Stanford University,stanford,USA,Stanford,3,2,58416,25000,8.0,7.0,"Fall",true,https://stanford.edu,Leading research university in Silicon Valley renowned for entrepreneurship.
+University of Oxford,oxford,UK,Oxford,4,3,35000,18000,7.5,7.0,"October",true,https://ox.ac.uk,World's oldest English-speaking university with outstanding academic reputation.
+University of Cambridge,cambridge,UK,Cambridge,5,5,33000,18000,7.5,7.0,"October",true,https://cam.ac.uk,Elite research university known for science, mathematics, and humanities.
+ETH Zurich,eth-zurich,Germany,Zurich,7,7,1460,24000,7.0,6.5,"September",true,https://ethz.ch,Europe's leading science and technology university with free tuition.
+Imperial College London,imperial-college,UK,London,10,8,40000,24000,7.5,6.5,"October",true,https://imperial.ac.uk,Science, engineering, medicine, and business focused Russell Group university.
+University of Toronto,toronto,Canada,Toronto,18,21,35000,18000,7.0,6.5,"Fall,Winter",true,https://utoronto.ca,Canada's top-ranked university with world-class research facilities.
+University of Melbourne,melbourne,Australia,Melbourne,14,14,42000,20000,6.5,6.5,"March,July",true,https://unimelb.edu.au,Australia's leading research university with global alumni network.
+University of British Columbia,ubc,Canada,Vancouver,46,34,28000,22000,7.0,6.5,"September,January",true,https://ubc.ca,Canada's global university in beautiful Vancouver with top research programs.
+McGill University,mcgill,Canada,Montreal,46,29,21000,16000,7.0,6.5,"September,January",false,https://mcgill.ca,Canada's most international university with a strong research legacy.
+TU Munich,tu-munich,Germany,Munich,37,50,2000,18000,7.5,6.5,"October,April",true,https://tum.de,Germany's top technical university known for engineering and natural sciences.
+RWTH Aachen,rwth-aachen,Germany,Aachen,98,106,1500,16000,7.0,6.5,"October,April",false,https://rwth-aachen.de,Germany's largest technical university with strong industry connections.
+University of Sydney,sydney,Australia,Sydney,19,18,44000,21000,6.5,6.5,"March,July",true,https://sydney.edu.au,Australia's first university with world-leading research across all disciplines.
+Australian National University,anu,Australia,Canberra,30,27,38000,18000,7.0,6.5,"February,July",false,https://anu.edu.au,Australia's national research university with exceptional graduate outcomes.
+University College Dublin,ucd,Ireland,Dublin,181,181,22000,16000,6.5,6.0,"September",true,https://ucd.ie,Ireland's largest university with strong ties to multinational tech companies.
+Trinity College Dublin,trinity-dublin,Ireland,Dublin,98,94,24000,17000,7.0,6.5,"September",true,https://tcd.ie,Ireland's oldest and most prestigious university founded in 1592.
+University of Edinburgh,edinburgh,UK,Edinburgh,22,22,28000,18000,7.0,6.5,"September",false,https://ed.ac.uk,Scotland's most famous university with a rich history of innovation and research.
+King's College London,kcl,UK,London,40,37,35000,24000,7.0,6.5,"September",false,https://kcl.ac.uk,World-leading research university in the heart of London.
+University of Waterloo,waterloo,Canada,Waterloo,211,149,37000,15000,7.5,6.5,"September,January",false,https://uwaterloo.ca,Canada's top engineering and co-op education university.
+Monash University,monash,Australia,Melbourne,57,42,38000,19000,6.5,6.5,"March,July",false,https://monash.edu,Australia's leading comprehensive research university.
+University of Queensland,uq,Australia,Brisbane,50,45,41000,17000,6.5,6.5,"February,July",false,https://uq.edu.au,One of Australia's top universities known for research excellence.
+Maynooth University,maynooth,Ireland,Maynooth,601,601,15000,14000,6.0,6.0,"September",false,https://mu.ie,Ireland's fastest-growing university with strong arts and science programs.
+National University of Ireland Galway,nuig,Ireland,Galway,251,251,16000,13000,6.0,6.0,"September",false,https://universityofgalway.ie,West Ireland's leading research university with strong marine science programs.
+Heidelberg University,heidelberg,Germany,Heidelberg,66,65,1500,17000,7.0,6.5,"October",false,https://uni-heidelberg.de,Germany's oldest university with strong life sciences and humanities programs.
+Sorbonne University,sorbonne,France,Paris,83,83,3770,14000,7.0,6.5,"September,January",true,https://sorbonne.fr,One of the world's oldest and most prestigious universities with exceptional arts and sciences programs.
+École Polytechnique,ecole-polytechnique,France,Palaiseau,42,42,15000,15000,8.0,7.0,"September",true,https://polytechnique.edu,France's most prestigious engineering grande école with strong industry connections and research output.
+HEC Paris,hec-paris,France,Jouy-en-Josas,22,22,18000,15000,7.5,7.0,"September,January",true,https://hec.edu,Ranked among the top 5 European business schools; globally respected for MBA and Masters in Management.
+Sciences Po Paris,sciences-po,France,Paris,244,244,14000,14000,7.0,6.5,"September",true,https://sciencespo.fr,Leading social sciences institution with a strong international reputation in law, politics, and economics.
+University of Paris-Saclay,paris-saclay,France,Saclay,15,15,3770,14000,7.5,6.5,"September",false,https://universite-paris-saclay.fr,France's top research university; ranked #1 in France across science and engineering disciplines.
+ESSEC Business School,essec,France,Cergy,,,16000,14000,7.0,6.5,"September,January",false,https://essec.edu,Top French grande école for business with strong alumni network across Europe and Asia.
+University of Auckland,university-of-auckland,New Zealand,Auckland,68,68,33000,18000,6.5,6.5,"February,July",true,https://auckland.ac.nz,New Zealand's largest and highest-ranked university with strong programs in engineering and business.
+University of Otago,otago,New Zealand,Dunedin,194,178,28000,16000,6.0,6.0,"February,July",true,https://otago.ac.nz,New Zealand's oldest university renowned for health sciences and research output.
+Victoria University of Wellington,victoria-wellington,New Zealand,Wellington,244,236,29000,17000,6.5,6.5,"February,July",true,https://wgtn.ac.nz,New Zealand's capital city university with strong law, government, and humanities programs.
+University of Canterbury,canterbury,New Zealand,Christchurch,301,281,27000,15000,6.0,6.0,"February,July",false,https://canterbury.ac.nz,Leading engineering and science university in New Zealand's South Island.
+AUT University,aut,New Zealand,Auckland,601,551,26000,17000,6.0,6.0,"February,July",false,https://aut.ac.nz,Auckland University of Technology with strong business, IT, and creative arts programs.
+Massey University,massey,New Zealand,Palmerston North,401,401,25000,15000,6.0,6.0,"February,July",false,https://massey.ac.nz,New Zealand's most globally connected university with campuses across the country.

@@ -1,0 +1,89 @@
+# docker-compose.yml — Find Abroad development stack
+# Copy .env.example to .env and fill in your values before running.
+#
+# Start the stack:
+#   docker compose up
+#
+# The NEXT_PUBLIC_API_URL in your .env file must be reachable from the USER'S BROWSER.
+# For local dev: http://localhost:8000/api/v1  (default in .env.example, DO NOT override here)
+
+services:
+  # ─── Backend ────────────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      target: development
+    container_name: find_abroad_backend4
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # These override .env for container-internal routing (service names as hostnames)
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    volumes:
+      - ./backend:/app
+      - uploads_data:/app/uploads
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - find_abroad_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ─── Frontend ───────────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      target: development
+    container_name: find_abroad_frontend4
+    restart: unless-stopped
+    env_file: .env
+    # NOTE: Do NOT override NEXT_PUBLIC_API_URL here.
+    # NEXT_PUBLIC_ vars are baked into the browser bundle. The value must be a URL
+    # the USER'S BROWSER can reach — not an internal Docker service name.
+    # Set NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1 in your .env file.
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - find_abroad_net
+
+  # ─── PostgreSQL ─────────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: find_abroad_postgres4
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - find_abroad_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  uploads_data:
+
+networks:
+  find_abroad_net:
+    driver: bridge

@@ -1,0 +1,1 @@
+"""Find Abroad backend application."""

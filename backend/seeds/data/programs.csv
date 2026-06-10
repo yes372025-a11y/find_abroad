@@ -1,0 +1,127 @@
+name,university_slug,slug,level,field,duration_months,tuition_usd
+MSc Computer Science,mit,mit-msc-cs,master,Computer Science,18,63000
+MSc Electrical Engineering,mit,mit-msc-ee,master,Engineering,18,63000
+MSc Data Science,mit,mit-msc-ds,master,Data Science,12,63000
+MSc Artificial Intelligence,mit,mit-msc-ai,master,Computer Science,12,63000
+MBA,harvard,harvard-mba,master,Business & MBA,24,73440
+MSc Public Health,harvard,harvard-mph,master,Medicine & Health,12,55000
+MSc Law,harvard,harvard-jd,master,Law,36,66000
+MSc Data Science,harvard,harvard-msc-ds,master,Data Science,12,55000
+MSc Computer Science,stanford,stanford-msc-cs,master,Computer Science,18,60000
+MBA,stanford,stanford-mba,master,Business & MBA,24,74706
+MSc Electrical Engineering,stanford,stanford-msc-ee,master,Engineering,18,60000
+MSc Data Science,stanford,stanford-msc-ds,master,Data Science,12,60000
+MSc Computer Science,oxford,oxford-msc-cs,master,Computer Science,12,38000
+MSc Law,oxford,oxford-bcl,master,Law,12,38000
+MSc Engineering,oxford,oxford-msc-eng,master,Engineering,12,38000
+MSc Natural Sciences,oxford,oxford-msc-ns,master,Natural Sciences,12,38000
+MSc Computer Science,cambridge,cambridge-msc-cs,master,Computer Science,12,36000
+MSc Engineering,cambridge,cambridge-msc-eng,master,Engineering,12,36000
+MSc Data Science,cambridge,cambridge-msc-ds,master,Data Science,12,36000
+MSc Natural Sciences,cambridge,cambridge-msc-ns,master,Natural Sciences,12,36000
+MSc Computer Science,eth-zurich,eth-msc-cs,master,Computer Science,18,1460
+MSc Engineering,eth-zurich,eth-msc-eng,master,Engineering,18,1460
+MSc Data Science,eth-zurich,eth-msc-ds,master,Data Science,18,1460
+MSc Natural Sciences,eth-zurich,eth-msc-ns,master,Natural Sciences,18,1460
+MSc Engineering,imperial-college,imperial-msc-eng,master,Engineering,12,40000
+MSc Computer Science,imperial-college,imperial-msc-cs,master,Computer Science,12,40000
+MSc Medicine & Health,imperial-college,imperial-msc-med,master,Medicine & Health,24,45000
+MSc Data Science,imperial-college,imperial-msc-ds,master,Data Science,12,40000
+MSc Computer Science,toronto,toronto-msc-cs,master,Computer Science,18,35000
+MBA,toronto,toronto-mba,master,Business & MBA,20,35000
+MSc Data Science,toronto,toronto-msc-ds,master,Data Science,12,35000
+MSc Engineering,toronto,toronto-msc-eng,master,Engineering,18,35000
+MSc Computer Science,melbourne,melbourne-msc-cs,master,Computer Science,24,45000
+MBA,melbourne,melbourne-mba,master,Business & MBA,18,44000
+MSc Data Science,melbourne,melbourne-msc-ds,master,Data Science,18,44000
+MSc Architecture,melbourne,melbourne-msc-arch,master,Architecture,24,44000
+MSc Computer Science,ubc,ubc-msc-cs,master,Computer Science,24,30000
+MSc Engineering,ubc,ubc-msc-eng,master,Engineering,24,30000
+MBA,ubc,ubc-mba,master,Business & MBA,20,30000
+MSc Data Science,ubc,ubc-msc-ds,master,Data Science,12,30000
+MSc Computer Science,mcgill,mcgill-msc-cs,master,Computer Science,18,22000
+MSc Engineering,mcgill,mcgill-msc-eng,master,Engineering,18,22000
+MSc Natural Sciences,mcgill,mcgill-msc-ns,master,Natural Sciences,24,22000
+MBA,mcgill,mcgill-mba,master,Business & MBA,18,22000
+MSc Computer Science,tu-munich,tum-msc-cs,master,Computer Science,24,2000
+MSc Engineering,tu-munich,tum-msc-eng,master,Engineering,24,2000
+MSc Data Science,tu-munich,tum-msc-ds,master,Data Science,24,2000
+MSc Natural Sciences,tu-munich,tum-msc-ns,master,Natural Sciences,24,2000
+MSc Engineering,rwth-aachen,rwth-msc-eng,master,Engineering,24,1500
+MSc Computer Science,rwth-aachen,rwth-msc-cs,master,Computer Science,24,1500
+MSc Data Science,rwth-aachen,rwth-msc-ds,master,Data Science,24,1500
+MSc Computer Science,sydney,sydney-msc-cs,master,Computer Science,24,46000
+MBA,sydney,sydney-mba,master,Business & MBA,18,45000
+MSc Engineering,sydney,sydney-msc-eng,master,Engineering,24,46000
+MSc Architecture,sydney,sydney-msc-arch,master,Architecture,24,46000
+MSc Computer Science,anu,anu-msc-cs,master,Computer Science,24,40000
+MSc Data Science,anu,anu-msc-ds,master,Data Science,24,40000
+MSc Natural Sciences,anu,anu-msc-ns,master,Natural Sciences,24,40000
+MSc Computer Science,ucd,ucd-msc-cs,master,Computer Science,12,22000
+MSc Data Science,ucd,ucd-msc-ds,master,Data Science,12,22000
+MBA,ucd,ucd-mba,master,Business & MBA,12,22000
+MSc Engineering,ucd,ucd-msc-eng,master,Engineering,24,22000
+MSc Computer Science,trinity-dublin,tcd-msc-cs,master,Computer Science,12,24000
+MSc Law,trinity-dublin,tcd-msc-law,master,Law,12,24000
+MBA,trinity-dublin,tcd-mba,master,Business & MBA,12,24000
+MSc Natural Sciences,trinity-dublin,tcd-msc-ns,master,Natural Sciences,12,24000
+MSc Computer Science,edinburgh,ed-msc-cs,master,Computer Science,12,29000
+MSc Data Science,edinburgh,ed-msc-ds,master,Data Science,12,29000
+MSc Architecture,edinburgh,ed-msc-arch,master,Architecture,12,29000
+MSc Law,edinburgh,ed-msc-law,master,Law,12,29000
+MSc Computer Science,kcl,kcl-msc-cs,master,Computer Science,12,36000
+MSc Law,kcl,kcl-msc-law,master,Law,12,36000
+MSc Medicine & Health,kcl,kcl-msc-med,master,Medicine & Health,12,36000
+MSc Data Science,kcl,kcl-msc-ds,master,Data Science,12,36000
+MSc Computer Science,waterloo,waterloo-msc-cs,master,Computer Science,18,38000
+MSc Engineering,waterloo,waterloo-msc-eng,master,Engineering,18,38000
+MSc Data Science,waterloo,waterloo-msc-ds,master,Data Science,12,38000
+MSc Computer Science,monash,monash-msc-cs,master,Computer Science,24,40000
+MBA,monash,monash-mba,master,Business & MBA,18,40000
+MSc Engineering,monash,monash-msc-eng,master,Engineering,24,40000
+MSc Data Science,monash,monash-msc-ds,master,Data Science,24,40000
+MSc Computer Science,uq,uq-msc-cs,master,Computer Science,24,43000
+MSc Engineering,uq,uq-msc-eng,master,Engineering,24,43000
+MSc Natural Sciences,uq,uq-msc-ns,master,Natural Sciences,24,43000
+MSc Data Science,uq,uq-msc-ds,master,Data Science,24,43000
+MSc Computer Science,heidelberg,heidelberg-msc-cs,master,Computer Science,24,1500
+MSc Natural Sciences,heidelberg,heidelberg-msc-ns,master,Natural Sciences,24,1500
+MSc Medicine & Health,heidelberg,heidelberg-msc-med,master,Medicine & Health,24,1500
+MSc Arts,sorbonne,sorbonne-ma-arts,master,Natural Sciences,24,4000
+MSc Computer Science,sorbonne,sorbonne-msc-cs,master,Computer Science,24,4000
+MSc Natural Sciences,sorbonne,sorbonne-msc-ns,master,Natural Sciences,24,4000
+MSc Law,sorbonne,sorbonne-msc-law,master,Law,12,4000
+MSc Engineering,ecole-polytechnique,polytechnique-msc-eng,master,Engineering,24,15000
+MSc Data Science,ecole-polytechnique,polytechnique-msc-ds,master,Data Science,18,15000
+MSc Computer Science,ecole-polytechnique,polytechnique-msc-cs,master,Computer Science,18,15000
+MBA,hec-paris,hec-mba,master,Business & MBA,16,62000
+MSc Management,hec-paris,hec-msc-mgmt,master,Business & MBA,12,38000
+MSc Data Science,hec-paris,hec-msc-ds,master,Data Science,12,38000
+MSc Political Science,sciences-po,sciences-po-msc-pol,master,Natural Sciences,24,14500
+MSc Law,sciences-po,sciences-po-msc-law,master,Law,24,14500
+MSc Computer Science,paris-saclay,saclay-msc-cs,master,Computer Science,24,3770
+MSc Engineering,paris-saclay,saclay-msc-eng,master,Engineering,24,3770
+MSc Data Science,paris-saclay,saclay-msc-ds,master,Data Science,24,3770
+MBA,essec,essec-mba,master,Business & MBA,18,42000
+MSc Management,essec,essec-msc-mgmt,master,Business & MBA,12,28000
+MSc Computer Science,university-of-auckland,auckland-msc-cs,master,Computer Science,18,35000
+MBA,university-of-auckland,auckland-mba,master,Business & MBA,18,35000
+MSc Engineering,university-of-auckland,auckland-msc-eng,master,Engineering,24,35000
+MSc Computer Science,otago,otago-msc-cs,master,Computer Science,18,30000
+MSc Medicine & Health,otago,otago-msc-med,master,Medicine & Health,24,30000
+MSc Natural Sciences,otago,otago-msc-ns,master,Natural Sciences,18,30000
+MSc Computer Science,victoria-wellington,vic-msc-cs,master,Computer Science,18,30000
+MSc Law,victoria-wellington,vic-msc-law,master,Law,12,30000
+MSc Architecture,victoria-wellington,vic-msc-arch,master,Architecture,24,30000
+MSc Engineering,canterbury,canterbury-msc-eng,master,Engineering,24,28000
+MSc Computer Science,canterbury,canterbury-msc-cs,master,Computer Science,24,28000
+MSc Data Science,aut,aut-msc-ds,master,Data Science,18,27000
+MBA,aut,aut-mba,master,Business & MBA,12,27000
+MSc Computer Science,massey,massey-msc-cs,master,Computer Science,24,26000
+MSc Engineering,massey,massey-msc-eng,master,Engineering,24,26000
+MSc Architecture,massey,massey-msc-arch,master,Architecture,24,26000
+MSc Data Science,maynooth,maynooth-msc-ds,master,Data Science,12,16000
+MSc Computer Science,maynooth,maynooth-msc-cs,master,Computer Science,12,16000
+MSc Computer Science,nuig,nuig-msc-cs,master,Computer Science,12,17000
+MSc Data Science,nuig,nuig-msc-ds,master,Data Science,12,17000
+MSc Engineering,nuig,nuig-msc-eng,master,Engineering,24,17000

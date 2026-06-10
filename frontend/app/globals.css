@@ -1,0 +1,640 @@
+/* Find Abroad — global styles (Tivor-inspired monochromatic design system) */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── Theme tokens ── */
+:root,
+[data-theme="light"] {
+  --bg: #fafafa;
+  --fg: #0a0a0a;
+  --muted: #6b6b6b;
+  --border: #e5e5e5;
+  --elev: #ffffff;
+  --nav-bg: rgba(250, 250, 250, 0.88);
+  --nav-h: 80px;
+}
+
+[data-theme="dark"] {
+  --bg: #000000;
+  --fg: #fafafa;
+  --muted: #8a8a8a;
+  --border: #1f1f1f;
+  --elev: #0a0a0a;
+  --nav-bg: rgba(0, 0, 0, 0.88);
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  font-family: var(--font-inter, 'Inter', 'Helvetica Neue', Arial, sans-serif);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Hero section full-viewport ── */
+.hero-section {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100svh;
+}
+
+/* ── Canvas cards (parallax floating cards in hero) ── */
+.canvas-card {
+  position: absolute;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.10);
+  background: var(--elev);
+  display: block;
+  transform-origin: center;
+  will-change: transform, opacity;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  /*
+   * FIX: Transform is composed from three independent CSS custom properties:
+   *
+   *   --rot         = the card's static tilt (set per-card by :nth-child rules below)
+   *   --entry-scale = driven by JS stagger entry (0.5 → 1), default 1
+   *   --hover-lift  = driven by :hover rule below (0px → -4px), default 0px
+   *
+   * This means JS only ever changes --entry-scale and never touches the
+   * rotate() value. The hover rule only changes --hover-lift and never
+   * touches rotate() or scale(). All three compose cleanly, and there
+   * is no !important war between CSS rotation, JS entry animation, and hover.
+   *
+   * This is why Tivor works: GSAP only moves the wrapper div (cardsRef),
+   * never individual cards. Card rotations live purely in CSS and are
+   * never written by JS.
+   */
+  --rot: 0deg;
+  --entry-scale: 1;
+  --hover-lift: 0px;
+  transform: rotate(var(--rot)) scale(var(--entry-scale)) translateY(var(--hover-lift));
+  transition: box-shadow 0.3s ease, --hover-lift 0.3s ease;
+}
+
+[data-theme="dark"] .canvas-card {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5);
+}
+
+.tile {
+  display: block;
+  width: 100%;
+  position: relative;
+  background: var(--border);
+  background-image: repeating-linear-gradient(
+    var(--ang, 135deg),
+    var(--s1, #c9c9c9) 0 8px,
+    var(--s2, #dcdcdc) 8px 16px
+  );
+}
+
+/* Light tile palette — monochromatic greys */
+.tile-1 { --s1: #e2e2e2; --s2: #ebebeb; --ang: 45deg; }
+.tile-2 { --s1: #d8d8d8; --s2: #e8e8e8; --ang: 135deg; }
+.tile-3 { --s1: #e0e0e0; --s2: #eaeaea; --ang: 90deg; }
+.tile-4 { --s1: #d5d5d5; --s2: #e5e5e5; --ang: 0deg; }
+.tile-5 { --s1: #cecece; --s2: #e0e0e0; --ang: 60deg; }
+.tile-6 { --s1: #e9e9e9; --s2: #f4f4f4; --ang: 20deg; }
+.tile-7 { --s1: #dadada; --s2: #e4e4e4; --ang: 75deg; }
+.tile-8 { --s1: #e0e0e0; --s2: #ececec; --ang: -30deg; }
+
+/* Dark tile palette */
+[data-theme="dark"] .tile-1 { --s1: #1a1a1a; --s2: #242424; --ang: 45deg; }
+[data-theme="dark"] .tile-2 { --s1: #161616; --s2: #222222; --ang: 135deg; }
+[data-theme="dark"] .tile-3 { --s1: #1c1c1c; --s2: #262626; --ang: 90deg; }
+[data-theme="dark"] .tile-4 { --s1: #141414; --s2: #202020; --ang: 0deg; }
+[data-theme="dark"] .tile-5 { --s1: #121212; --s2: #1e1e1e; --ang: 60deg; }
+[data-theme="dark"] .tile-6 { --s1: #1e1e1e; --s2: #2a2a2a; --ang: 20deg; }
+[data-theme="dark"] .tile-7 { --s1: #181818; --s2: #282828; --ang: 75deg; }
+[data-theme="dark"] .tile-8 { --s1: #1a1a1a; --s2: #222222; --ang: -30deg; }
+
+/*
+ * Card layout — editorial scatter around the wordmark.
+ *
+ * Each card gets its own width + aspect-ratio override so the layout
+ * feels like a curated mood-board rather than a uniform grid.
+ * Slight rotations add depth and break the mechanical clock feel.
+ *
+ * The wordmark at 13vw occupies roughly x:22–78%, y:28–72%.
+ * Cards sit just outside that zone. Outer cards bleed off-screen (Tivor-style).
+ *
+ *   Card 1 — left-center tall portrait  (bleeds left)
+ *   Card 2 — top-left   landscape       (angled slightly CCW)
+ *   Card 3 — top-right  landscape       (angled slightly CW, bleeds top)
+ *   Card 4 — right-center tall portrait (bleeds right)
+ *   Card 5 — bottom-right landscape     (angled slightly CCW)
+ *   Card 6 — bottom-left  landscape     (angled slightly CW)
+ */
+
+/* Base card — no universal width; each nth-child sets its own */
+.canvas-card {
+  /* aspect-ratio set per-card below via inline style override in tsx OR here */
+}
+
+/* ── Desktop: Perfect Oval Frame ── */
+/* Top Row */
+.canvas-card:nth-child(2) { width: 16vw; left: 10%; top: 2%; --rot: -2deg; }
+.canvas-card:nth-child(7) { width: 14vw; left: 43%; top: -8%; --rot: 1.5deg; }
+.canvas-card:nth-child(3) { width: 18vw; left: 72%; top: 2%; --rot: 2.5deg; }
+
+/* Middle Row */
+.canvas-card:nth-child(1) { width: 14vw; left: -2%; top: 38%; --rot: -3.5deg; }
+.canvas-card:nth-child(4) { width: 14vw; left: 88%; top: 38%; --rot: 3deg; }
+
+/* Bottom Row */
+.canvas-card:nth-child(6) { width: 18vw; left: 8%; top: 68%; --rot: 2deg; }
+.canvas-card:nth-child(8) { width: 16vw; left: 42%; top: 78%; --rot: -1.5deg; }
+.canvas-card:nth-child(5) { width: 18vw; left: 74%; top: 68%; --rot: -2deg; }
+
+/* Hover: lift without fighting the rotation */
+.canvas-card:hover {
+  box-shadow: 0 24px 56px rgba(0,0,0,0.22);
+  --hover-lift: -6px;
+}
+
+/* ── Tablet: Tighter Oval ── */
+@media (max-width: 1024px) {
+  .canvas-card:nth-child(2) { width: 20vw; left: 6%; top: 2%; --rot: -2deg; }
+  .canvas-card:nth-child(7) { width: 18vw; left: 41%; top: -6%; --rot: 1.5deg; }
+  .canvas-card:nth-child(3) { width: 22vw; left: 72%; top: 2%; --rot: 2.5deg; }
+  .canvas-card:nth-child(1) { width: 18vw; left: -4%; top: 38%; --rot: -3.5deg; }
+  .canvas-card:nth-child(4) { width: 18vw; left: 86%; top: 38%; --rot: 3deg; }
+  .canvas-card:nth-child(6) { width: 22vw; left: 4%; top: 68%; --rot: 2deg; }
+  .canvas-card:nth-child(8) { width: 20vw; left: 40%; top: 76%; --rot: -1.5deg; }
+  .canvas-card:nth-child(5) { width: 22vw; left: 74%; top: 68%; --rot: -2deg; }
+}
+
+/* ── Mobile: Edge Ring ── */
+@media (max-width: 768px) {
+  /* Arch top */
+  .canvas-card:nth-child(1) { width: 26vw; left: 4%; top: 8%; --rot: -4deg; }
+  .canvas-card:nth-child(7) { width: 24vw; left: 38%; top: -2%; --rot: 2deg; }
+  .canvas-card:nth-child(2) { width: 28vw; left: 68%; top: 6%; --rot: 4deg; }
+
+  /* Middle sides */
+  .canvas-card:nth-child(3) { width: 30vw; left: -2%; top: 36%; --rot: -2deg; }
+  .canvas-card:nth-child(4) { width: 25vw; left: 75%; top: 38%; --rot: 3deg; }
+
+  /* Bottom sides */
+  .canvas-card:nth-child(5) { width: 28vw; left: 6%; top: 65%; --rot: -3deg; }
+  .canvas-card:nth-child(8) { width: 26vw; left: 36%; top: 72%; --rot: 1.5deg; }
+  .canvas-card:nth-child(6) { width: 30vw; left: 64%; top: 62%; --rot: -1deg; }
+}
+
+/* ── Tile caption ── */
+.tile .cap {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ── Marquee ── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  will-change: transform;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg);
+  opacity: 0.5;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-track span { padding: 0 4px; }
+.marquee-track .sep { opacity: 0.3; padding: 0; }
+
+.marquee-outer {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ── Logo marquee ── */
+@keyframes logo-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+.logo-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  white-space: nowrap;
+  will-change: transform;
+  animation: logo-scroll 32s linear infinite;
+  padding-inline: 1rem;
+}
+
+/* ── Nav button hover pill ── */
+.nav-button {
+  padding: 0.5rem 1.25rem 0.5rem 1rem;
+  transition: background-color 0.2s ease, padding 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg);
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-button-dot {
+  position: absolute;
+  left: 1rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 1rem;
+  background-color: var(--fg);
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .nav-button:hover {
+    background-color: var(--border);
+    padding-left: 2.25em;
+  }
+  .nav-button:hover .nav-button-dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Theme toggle animation ── */
+@keyframes toggle-spin {
+  0%   { transform: rotate(0deg)   scale(1); }
+  55%  { transform: rotate(390deg) scale(1.12); }
+  75%  { transform: rotate(345deg) scale(1.06); }
+  90%  { transform: rotate(365deg) scale(1.04); }
+  100% { transform: rotate(360deg) scale(1.05); }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--elev);
+  color: var(--fg);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--border);
+}
+
+.theme-toggle svg {
+  will-change: transform;
+}
+
+.theme-toggle:hover svg {
+  animation: toggle-spin 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Mobile menu ── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 1000;   /* must be above WhatsApp button (999) */
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  padding-top: max(24px, env(safe-area-inset-top));
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1), visibility 0.4s;
+  overflow-y: auto;
+  visibility: hidden;
+}
+.mobile-menu.is-open { 
+  transform: translateY(0); 
+  visibility: visible;
+}
+
+/* ── CTA button ── */
+a.cta-btn:hover {
+  background-color: var(--fg) !important;
+  color: var(--bg) !important;
+}
+
+/* ── Product cards (stacked scroll) ── */
+.product-card {
+  background: var(--bg);
+}
+
+/* ── Scroll indicator animation ── */
+@keyframes bob {
+  0%, 100% { transform: rotate(45deg) translate(-1px, -1px); }
+  50%       { transform: rotate(45deg) translate(1px, 1px); }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE SYSTEM — Find Abroad
+   Breakpoints:
+     xs  ≤ 480px  (small phones)
+     sm  ≤ 640px  (phones)
+     md  ≤ 768px  (large phones / small tablets)
+     lg  ≤ 1024px (tablets)
+   All rules here are ADDITIVE — they override specific properties
+   only within their breakpoint range.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Nav height on mobile ── */
+@media (max-width: 768px) {
+  :root,
+  [data-theme="light"],
+  [data-theme="dark"] {
+    --nav-h: 64px;
+  }
+}
+
+/* ── Hero section: CTA strip ── */
+.hero-cta-strip {
+  flex-wrap: wrap;
+}
+@media (max-width: 480px) {
+  .hero-cta-strip {
+    flex-direction: column;
+    align-items: center;
+    bottom: 1.25rem;
+    gap: 8px;
+  }
+  .hero-cta-strip a {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+/* ── Hero: hide scroll indicator on small screens ── */
+@media (max-width: 640px) {
+  .hero-scroll-indicator {
+    display: none !important;
+  }
+}
+
+/* ── Features section: chrome bar right metadata ── */
+@media (max-width: 640px) {
+  .feat-chrome-right {
+    display: none !important;
+  }
+}
+
+/* ── Consultation page: stats mini-grid ── */
+.consult-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 480px) {
+  .consult-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* ── Study-abroad pages: highlights row ── */
+.highlights-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .highlights-row {
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+  }
+  .highlights-row-body {
+    grid-column: 1 / -1;
+    padding-left: 0;
+  }
+}
+
+/* ── Study-abroad pages: facts grid border fix on mobile ── */
+@media (max-width: 480px) {
+  .facts-grid-item {
+    border-left: none !important;
+    padding-left: 0 !important;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .facts-grid-item:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ── Study-abroad pages: courses grid border fix on mobile ── */
+@media (max-width: 480px) {
+  .courses-grid-item {
+    border-left: none !important;
+    padding-left: 0 !important;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .courses-grid-item:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ── Study-abroad hero section padding ── */
+@media (max-width: 768px) {
+  .study-hero-section {
+    padding: 4rem 1.25rem 3rem !important;
+  }
+}
+
+/* ── Loans page: wizard step tracker ── */
+@media (max-width: 480px) {
+  .wizard-step-tracker {
+    display: none !important;
+  }
+}
+
+/* ── Loans/wizard: two-column grid collapses to one on mobile ── */
+.wizard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 640px) {
+  .wizard-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Scholarship / Loan list: filter bar ── */
+.schol-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+@media (max-width: 640px) {
+  .schol-filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .schol-search-input {
+    width: 100% !important;
+  }
+}
+
+/* ── Scholarship / Loan list: hide right meta on tiny screens ── */
+@media (max-width: 480px) {
+  .schol-meta-right,
+  .lender-meta-right {
+    display: none !important;
+  }
+}
+
+/* ── Dashboard: mobile layout ── */
+@media (max-width: 768px) {
+  .dashboard-sidebar-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 200 !important;
+    width: 240px !important;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.18);
+  }
+  .dashboard-sidebar-overlay.sidebar-open {
+    transform: translateX(0);
+  }
+  .dashboard-backdrop {
+    display: block !important;
+  }
+  .dashboard-main-area {
+    width: 100% !important;
+  }
+  .dash-header-hamburger {
+    display: flex !important;
+  }
+}
+@media (min-width: 769px) {
+  .dashboard-backdrop {
+    display: none !important;
+  }
+  .dash-header-hamburger {
+    display: none !important;
+  }
+}
+
+/* ── Dashboard header: sign-out text on very small screens ── */
+@media (max-width: 480px) {
+  .dash-signout-label {
+    display: none !important;
+  }
+}
+
+/* ── Section padding scaling ── */
+@media (max-width: 768px) {
+  .section-pad-xl {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+  .section-pad-lg {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .section-pad-xl {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .section-pad-lg {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+}
+
+/* ── Horizontal scroll: hide native scrollbar on mobile carousels ── */
+.mobile-hscroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.mobile-hscroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── General: prevent unwanted overflow site-wide ── */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* ── Hover buttons ── */
+.hover-btn-primary {
+  transition: background 0.2s, color 0.2s;
+}
+@media (hover: hover) {
+  .hover-btn-primary:hover {
+    background: var(--fg) !important;
+    color: var(--bg) !important;
+  }
+}
+
+.hover-btn-outline {
+  transition: border-color 0.2s, color 0.2s;
+}
+@media (hover: hover) {
+  .hover-btn-outline:hover {
+    border-color: var(--fg) !important;
+    color: var(--fg) !important;
+  }
+}
