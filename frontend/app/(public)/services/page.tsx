@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ServicesPage } from "~/components/sections/services-page-client";
 
 export const metadata: Metadata = {
-  title: "Services & Pricing — Find Abroad",
+  title: "Services — Find Abroad",
   description:
     "Expert study abroad counseling — university shortlisting, application support, visa guidance, and loan assistance.",
 };

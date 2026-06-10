@@ -283,6 +283,10 @@ export function ConsultationBookingForm() {
     try {
       await leadsApi.capture({ ...form, source: "consultation" });
       setSubmitted(true);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("consultation_submitted", "true");
+        window.dispatchEvent(new Event("consultation_submitted"));
+      }
       toast.success("Consultation booked! We'll be in touch within 24 hours.");
     } catch {
       toast.error("Booking failed. Please try again.");

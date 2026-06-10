@@ -8,3 +8,15 @@ venv/
 .git/
 .DS_Store
 *.log
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build and Caches
+dist/
+build/
+.turbo/
+coverage/

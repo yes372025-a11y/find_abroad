@@ -1,6 +1,7 @@
 import { Navbar } from "~/components/layout/navbar";
 import { Footer } from "~/components/layout/footer";
 import WhatsAppButton from "~/components/layout/whatsapp-button";
+import { LeadCapturePopup } from "~/components/sections/lead-capture-popup";
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
       </main>
       <Footer />
       <WhatsAppButton />
+      <LeadCapturePopup />
     </div>
   );
 }
