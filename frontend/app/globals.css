@@ -250,64 +250,64 @@ body {
   /* aspect-ratio set per-card below via inline style override in tsx OR here */
 }
 
-/* ── Desktop: Perfect Oval Frame ── */
-/* Top Row */
+/* ── Desktop: Balanced Oval Frame ── */
+/* Top Row — three cards across the top */
 .canvas-card:nth-child(2) {
-  width: 16vw;
-  left: 10%;
-  top: 2%;
-  --rot: -2deg;
+  width: 14vw;
+  left: 8%;
+  top: 4%;
+  --rot: -3deg;
 }
 
 .canvas-card:nth-child(7) {
-  width: 14vw;
-  left: 43%;
-  top: -8%;
-  --rot: 1.5deg;
-}
-
-.canvas-card:nth-child(3) {
-  width: 18vw;
-  left: 72%;
-  top: 2%;
-  --rot: 2.5deg;
-}
-
-/* Middle Row */
-.canvas-card:nth-child(1) {
-  width: 14vw;
-  left: -2%;
-  top: 38%;
-  --rot: -3.5deg;
-}
-
-.canvas-card:nth-child(4) {
-  width: 14vw;
-  left: 88%;
-  top: 38%;
-  --rot: 3deg;
-}
-
-/* Bottom Row */
-.canvas-card:nth-child(6) {
-  width: 18vw;
-  left: 8%;
-  top: 68%;
+  width: 12vw;
+  left: 44%;
+  top: -2%;
   --rot: 2deg;
 }
 
+.canvas-card:nth-child(3) {
+  width: 14vw;
+  left: 76%;
+  top: 4%;
+  --rot: 3deg;
+}
+
+/* Middle Row — two cards on the far sides */
+.canvas-card:nth-child(1) {
+  width: 12vw;
+  left: -1%;
+  top: 36%;
+  --rot: -4deg;
+}
+
+.canvas-card:nth-child(4) {
+  width: 12vw;
+  left: 90%;
+  top: 36%;
+  --rot: 3.5deg;
+}
+
+/* Bottom Row — three cards across the bottom */
+.canvas-card:nth-child(6) {
+  width: 14vw;
+  left: 6%;
+  top: 66%;
+  --rot: 2.5deg;
+}
+
 .canvas-card:nth-child(8) {
-  width: 16vw;
-  left: 42%;
-  top: 78%;
+  width: 12vw;
+  left: 44%;
+  top: 72%;
   --rot: -1.5deg;
 }
 
 .canvas-card:nth-child(5) {
-  width: 18vw;
-  left: 74%;
-  top: 68%;
-  --rot: -2deg;
+  width: 14vw;
+  left: 78%;
+  top: 66%;
+  --rot: -2.5deg;
 }
 
 /* Hover: lift without fighting the rotation */
@@ -319,123 +319,154 @@ body {
 /* ── Tablet: Tighter Oval ── */
 @media (max-width: 1024px) {
   .canvas-card:nth-child(2) {
-    width: 20vw;
-    left: 6%;
-    top: 2%;
-    --rot: -2deg;
+    width: 18vw;
+    left: 4%;
+    top: 4%;
+    --rot: -3deg;
   }
 
   .canvas-card:nth-child(7) {
-    width: 18vw;
-    left: 41%;
-    top: -6%;
-    --rot: 1.5deg;
-  }
-
-  .canvas-card:nth-child(3) {
-    width: 22vw;
-    left: 72%;
-    top: 2%;
-    --rot: 2.5deg;
-  }
-
-  .canvas-card:nth-child(1) {
-    width: 18vw;
-    left: -4%;
-    top: 38%;
-    --rot: -3.5deg;
-  }
-
-  .canvas-card:nth-child(4) {
-    width: 18vw;
-    left: 86%;
-    top: 38%;
-    --rot: 3deg;
-  }
-
-  .canvas-card:nth-child(6) {
-    width: 22vw;
-    left: 4%;
-    top: 68%;
-    --rot: 2deg;
-  }
-
-  .canvas-card:nth-child(8) {
-    width: 20vw;
-    left: 40%;
-    top: 76%;
-    --rot: -1.5deg;
-  }
-
-  .canvas-card:nth-child(5) {
-    width: 22vw;
-    left: 74%;
-    top: 68%;
-    --rot: -2deg;
-  }
-}
-
-/* ── Mobile: Edge Ring ── */
-@media (max-width: 768px) {
-
-  /* Arch top */
-  .canvas-card:nth-child(1) {
-    width: 26vw;
-    left: 4%;
-    top: 8%;
-    --rot: -4deg;
-  }
-
-  .canvas-card:nth-child(7) {
-    width: 24vw;
-    left: 38%;
+    width: 16vw;
+    left: 42%;
     top: -2%;
     --rot: 2deg;
   }
 
-  .canvas-card:nth-child(2) {
-    width: 28vw;
-    left: 68%;
-    top: 6%;
-    --rot: 4deg;
-  }
-
-  /* Middle sides */
   .canvas-card:nth-child(3) {
-    width: 30vw;
-    left: -2%;
-    top: 36%;
-    --rot: -2deg;
-  }
-
-  .canvas-card:nth-child(4) {
-    width: 25vw;
-    left: 75%;
-    top: 38%;
+    width: 18vw;
+    left: 76%;
+    top: 4%;
     --rot: 3deg;
   }
 
-  /* Bottom sides */
-  .canvas-card:nth-child(5) {
-    width: 28vw;
-    left: 6%;
-    top: 65%;
-    --rot: -3deg;
+  .canvas-card:nth-child(1) {
+    width: 16vw;
+    left: -3%;
+    top: 36%;
+    --rot: -4deg;
   }
 
-  .canvas-card:nth-child(8) {
-    width: 26vw;
-    left: 36%;
-    top: 72%;
-    --rot: 1.5deg;
+  .canvas-card:nth-child(4) {
+    width: 16vw;
+    left: 88%;
+    top: 36%;
+    --rot: 3.5deg;
   }
 
   .canvas-card:nth-child(6) {
-    width: 30vw;
-    left: 64%;
-    top: 62%;
-    --rot: -1deg;
+    width: 18vw;
+    left: 2%;
+    top: 66%;
+    --rot: 2.5deg;
   }
+
+  .canvas-card:nth-child(8) {
+    width: 16vw;
+    left: 42%;
+    top: 74%;
+    --rot: -1.5deg;
+  }
+
+  .canvas-card:nth-child(5) {
+    width: 18vw;
+    left: 78%;
+    top: 66%;
+    --rot: -2.5deg;
+  }
+}
+
+/* ── Mobile: Creative Mood Board ── */
+@media (max-width: 768px) {
+
+  .canvas-card .tile {
+    aspect-ratio: 1/1 !important;
+  }
+
+  /* Gentle floating animation */
+  .canvas-card { animation: cardFloat 6s ease-in-out infinite; }
+  .canvas-card:nth-child(even) { animation-direction: reverse; }
+  .canvas-card:nth-child(1) { animation-delay: 0s; }
+  .canvas-card:nth-child(2) { animation-delay: -0.75s; }
+  .canvas-card:nth-child(3) { animation-delay: -1.5s; }
+  .canvas-card:nth-child(4) { animation-delay: -2.25s; }
+  .canvas-card:nth-child(5) { animation-delay: -3s; }
+  .canvas-card:nth-child(6) { animation-delay: -3.75s; }
+  .canvas-card:nth-child(7) { animation-delay: -4.5s; }
+  .canvas-card:nth-child(8) { animation-delay: -5.25s; }
+
+  /*
+   * Tight oval ring centered on the wordmark (~48% from top).
+   * All cards 20vw. 8 clock positions, evenly spaced.
+   */
+
+  /* 12 o'clock */
+  .canvas-card:nth-child(1) {
+    width: 20vw;
+    left: 38%;
+    top: 18%;
+    --rot: 3deg;
+  }
+
+  /* 10:30 */
+  .canvas-card:nth-child(8) {
+    width: 20vw;
+    left: 4%;
+    top: 22%;
+    --rot: -7deg;
+  }
+
+  /* 1:30 */
+  .canvas-card:nth-child(2) {
+    width: 20vw;
+    left: 70%;
+    top: 22%;
+    --rot: 7deg;
+  }
+
+  /* 9 o'clock */
+  .canvas-card:nth-child(7) {
+    width: 20vw;
+    left: -4%;
+    top: 40%;
+    --rot: -5deg;
+  }
+
+  /* 3 o'clock */
+  .canvas-card:nth-child(3) {
+    width: 20vw;
+    left: 80%;
+    top: 40%;
+    --rot: 5deg;
+  }
+
+  /* 7:30 */
+  .canvas-card:nth-child(6) {
+    width: 20vw;
+    left: 2%;
+    top: 58%;
+    --rot: 6deg;
+  }
+
+  /* 4:30 */
+  .canvas-card:nth-child(4) {
+    width: 20vw;
+    left: 68%;
+    top: 58%;
+    --rot: -6deg;
+  }
+
+  /* 6 o'clock */
+  .canvas-card:nth-child(5) {
+    width: 20vw;
+    left: 40%;
+    top: 66%;
+    --rot: -3deg;
+  }
+}
+
+@keyframes cardFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
 }
 
 /* ── Tile caption ── */

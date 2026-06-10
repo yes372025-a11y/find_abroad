@@ -354,7 +354,7 @@ export function HeroSection() {
           alignItems: "center",
           justifyContent: "center",
           pointerEvents: "none",
-          zIndex: 2,
+          zIndex: 3,
         }}
       >
         <div style={{ textAlign: "center" }}>
@@ -379,11 +379,11 @@ export function HeroSection() {
             className="hero-sub"
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "clamp(8px, 1.1vw, 11px)",
-              letterSpacing: "0.14em",
+              fontSize: "clamp(10px, 1.2vw, 13px)",
+              letterSpacing: "0.18em",
               textTransform: "uppercase",
               color: "var(--muted)",
-              marginTop: "1.5rem",
+              marginTop: "1.25rem",
             }}
           >
             Your Global Education Partner
