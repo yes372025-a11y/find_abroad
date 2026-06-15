@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     # ─── CORS ──────────────────────────────────────────────────────────────────
     # Stored as a raw comma-separated string to avoid pydantic-settings 2.7+
     # attempting JSON-decode on list[str] fields before validators run.
-    cors_origins: str = "http://localhost:3000,https://3xt8kq12-3000.inc1.devtunnels.ms"
+    cors_origins: str = "http://localhost:3000,https://3xt8kq12-3000.inc1.devtunnels.ms,https://friendly-robot-p7jpxpvx96g7h6wqw-3000.app.github.dev"
 
     @property
     def cors_origins_list(self) -> list[str]:

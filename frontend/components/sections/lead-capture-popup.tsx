@@ -1,44 +1,59 @@
 "use client";
-
-import { useState, useEffect } from "react";
+ 
+import { useState, useEffect, useRef } from "react";
 import { ConsultationBookingForm } from "~/components/forms/consultation-booking-form";
-
+ 
 export function LeadCapturePopup() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const delayRef = useRef(45000); // Start with 45 seconds
+  const timeoutIdRef = useRef<NodeJS.Timeout | null>(null);
+ 
   useEffect(() => {
-    // Prevent interval if already submitted
+    // Prevent if already submitted
     if (typeof window !== "undefined" && localStorage.getItem("consultation_submitted") === "true") {
       return;
     }
-
-    // Show immediately on first load
-    setIsOpen(true);
-
-    const interval = setInterval(() => {
-      setIsOpen((prev) => {
-        // Only open if not already open and not submitted
-        if (!prev && localStorage.getItem("consultation_submitted") !== "true") {
-          return true;
+ 
+    const scheduleNext = () => {
+      if (localStorage.getItem("consultation_submitted") === "true") return;
+ 
+      timeoutIdRef.current = setTimeout(() => {
+        if (localStorage.getItem("consultation_submitted") !== "true") {
+          setIsOpen(true);
+          // Double the delay for the next time
+          delayRef.current *= 2;
         }
-        return prev;
-      });
-    }, 45000);
-
-    const handleSubmitted = () => {
-      clearInterval(interval);
+      }, delayRef.current);
     };
-
-    window.addEventListener("consultation_submitted", handleSubmitted);
-
+ 
+    // Only schedule if not currently open
+    if (!isOpen) {
+      scheduleNext();
+    }
+ 
     return () => {
-      clearInterval(interval);
+      if (timeoutIdRef.current) {
+        clearTimeout(timeoutIdRef.current);
+      }
+    };
+  }, [isOpen]);
+ 
+  useEffect(() => {
+    const handleSubmitted = () => {
+      if (timeoutIdRef.current) {
+        clearTimeout(timeoutIdRef.current);
+      }
+    };
+ 
+    window.addEventListener("consultation_submitted", handleSubmitted);
+ 
+    return () => {
       window.removeEventListener("consultation_submitted", handleSubmitted);
     };
   }, []);
-
+ 
   if (!isOpen) return null;
-
+ 
   return (
     <div
       style={{
@@ -60,7 +75,7 @@ export function LeadCapturePopup() {
         if (e.target === e.currentTarget) setIsOpen(false);
       }}
     >
-      <div 
+      <div
         style={{
            position: "relative",
            width: "100%",
@@ -100,11 +115,11 @@ export function LeadCapturePopup() {
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
-        
+       
         {/* We wrap the form, the form itself has the styling and background */}
         <ConsultationBookingForm />
       </div>
-      
+     
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }
@@ -118,3 +133,4 @@ export function LeadCapturePopup() {
     </div>
   );
 }
+ 
